@@ -1,0 +1,81 @@
+# Introduction of Computer Science
+
+## Expression and Statement
+
+```{r}
+1 + 1 # Expression
+{3 + 4} # Expression, '{}' meaning nothing, only put anything inside together
+c(1, 2, 3, 4) # Expression
+seq(1, 10, by = 2) # Expression
+sum(c(1, 2, 3, 4)) # Expression
+
+
+x <- {1 + 1} # Statement, create a variable 'x'
+eq <- c(1, 2, 3, 4) # Statement, create a variable 'eq'
+s <- sum(1:10) # Statement, create a variable 's'
+```
+
+> Question: what is the difference between expression and statement?
+
+## Condtional expression
+
+```{r}
+# if 1 smaller than 2, the value of the expression is 2, 
+# otherwise, the value is 3.
+if (1 < 2) 2 else 3 
+
+# A more complex example:
+# Given variable x, 
+# if value of x smaller than 12, then assign 'sum(1:x)' to 'y',
+# otherwise assign 'x' to 'y'.
+x <- 10
+y <- if (x < 12) { x <- x + 1; sum(1:x) } else { x }
+```
+
+## Flow control
+
+```{r}
+require(stringr)
+```
+
+```{r}
+# for loop
+for (i in c(1, 3, 5, 7)) {
+  print(str_interp("Num, ${i}"))
+}
+```
+
+```{r}
+# while loop
+x <- 10
+while(x < 20) {
+  x <- x + 1
+  print(str_interp("Num, ${x}"))
+}
+```
+
+```{r}
+# repeat
+x <- 10
+i <- 1
+repeat{
+  x <- x + 1
+  print(str_interp("No. ${i}: ${x}"))
+  i <- i + 1
+  if (x > 20) {
+    break
+  }
+}
+```
+
+> Question: how to create multiple variables in a specific environment ? 
+
+```{r}
+env.test <- new.env()
+
+for (name in c("zhou", "hong", "ling", "is", "pig")) {
+  assign(name, 1:10, envir = env.test)
+}
+```
+
+
