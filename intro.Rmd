@@ -76,6 +76,7 @@ env.test <- new.env()
 for (name in c("zhou", "hong", "ling", "is", "pig")) {
   assign(name, 1:10, envir = env.test)
 }
+print("Hello")
 ```
 
 
